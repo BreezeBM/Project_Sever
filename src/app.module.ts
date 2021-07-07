@@ -3,6 +3,10 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ConfigModule } from '@nestjs/config';
+import { UserModule } from './user/user.module';
+import { BoardModule } from './board/board.module';
+import { RecipeBoardModule } from './recipe-board/recipeBoard.module';
+import { IngredientModule } from './ingredient/ingredient.module';
 import Joi from 'joi';
 
 @Module({
@@ -31,6 +35,10 @@ import Joi from 'joi';
       logging: true,
       entities: [],
     }),
+    UserModule,
+    BoardModule,
+    RecipeBoardModule,
+    IngredientModule,
   ],
   controllers: [AppController],
   providers: [AppService],
