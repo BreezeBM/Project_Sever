@@ -1,13 +1,10 @@
 import { IsBoolean, IsNumber } from 'class-validator';
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { CoreEntity } from 'src/common/entites/core.entity';
+import { Column, Entity, ManyToOne } from 'typeorm';
 import { Board } from './board.entity';
 
 @Entity()
-export class BoardLike {
-  @PrimaryGeneratedColumn()
-  @IsNumber()
-  id: number;
-
+export class BoardLike extends CoreEntity {
   @Column()
   @IsNumber()
   board_id: number;

@@ -3,12 +3,8 @@ import { CoreEntity } from 'src/common/entites/core.entity';
 import { Column, Entity } from 'typeorm';
 
 @Entity()
-export class BoardComment extends CoreEntity {
+export class Grocery extends CoreEntity {
   @Column()
   @IsString()
-  writer: string;
-
-  @Column()
-  @IsString()
-  comment: string;
+  name: string;
 }

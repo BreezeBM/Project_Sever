@@ -6,7 +6,7 @@ import { ConfigModule } from '@nestjs/config';
 import { UserModule } from './user/user.module';
 import { BoardModule } from './board/board.module';
 import { RecipeBoardModule } from './recipe-board/recipeBoard.module';
-import { IngredientModule } from './ingredient/ingredient.module';
+import { GroceryModule } from './grocery/grocery.module';
 import Joi from 'joi';
 
 @Module({
@@ -38,7 +38,7 @@ import Joi from 'joi';
     UserModule,
     BoardModule,
     RecipeBoardModule,
-    IngredientModule,
+    GroceryModule,
   ],
   controllers: [AppController],
   providers: [AppService],
