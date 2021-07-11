@@ -1,14 +1,12 @@
-import { IsNumber, isString, IsString } from 'class-validator';
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import { IsNumber, IsString } from 'class-validator';
+import { CoreEntity } from 'src/common/entites/core.entity';
+import { Column, Entity, OneToMany } from 'typeorm';
+import { BoardComment } from './boardComment.entity';
 import { BoardLike } from './boardLike.entity';
 import { BoardRating } from './boardRating.entity';
 
 @Entity()
-export class Board {
-  @PrimaryGeneratedColumn()
-  @IsNumber()
-  id: number;
-
+export class Board extends CoreEntity {
   @Column()
   @IsString()
   category: string;
@@ -27,7 +25,7 @@ export class Board {
 
   @Column()
   @IsString()
-  photo: string;
+  foodImg: string;
 
   @Column()
   @IsNumber()
@@ -42,4 +40,7 @@ export class Board {
 
   @OneToMany(() => BoardRating, (boardRating) => boardRating.board)
   boardRatings: BoardRating[];
+
+  @OneToMany(() => BoardComment, (boardComment) => boardComment.board)
+  boardComments: BoardComment[];
 }

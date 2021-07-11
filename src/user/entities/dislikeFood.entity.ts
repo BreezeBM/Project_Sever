@@ -1,13 +1,10 @@
-import { IsNumber, IsString } from 'class-validator';
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { IsString } from 'class-validator';
+import { CoreEntity } from 'src/common/entites/core.entity';
+import { Column, Entity, ManyToOne } from 'typeorm';
 import { User } from './user.entity';
 
 @Entity()
-export class DislikeFood {
-  @PrimaryGeneratedColumn()
-  @IsNumber()
-  id: number;
-
+export class DislikeFood extends CoreEntity {
   @Column()
   @IsString()
   nonprefer: string;

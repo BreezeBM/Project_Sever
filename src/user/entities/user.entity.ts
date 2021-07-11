@@ -1,14 +1,11 @@
-import { IsDate, IsEmail, IsNumber, IsString } from 'class-validator';
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import { IsDate, IsEmail, IsString } from 'class-validator';
+import { CoreEntity } from 'src/common/entites/core.entity';
+import { Column, Entity, OneToMany } from 'typeorm';
 import { DislikeFood } from './dislikeFood.entity';
 import { LikeFood } from './likeFood.entity';
 
 @Entity()
-export class User {
-  @PrimaryGeneratedColumn()
-  @IsNumber()
-  id: number;
-
+export class User extends CoreEntity {
   @Column()
   @IsString()
   username: string;

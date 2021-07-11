@@ -1,19 +1,10 @@
 import { IsNumber } from 'class-validator';
-import {
-  Column,
-  Entity,
-  ManyToMany,
-  ManyToOne,
-  PrimaryGeneratedColumn,
-} from 'typeorm';
+import { CoreEntity } from 'src/common/entites/core.entity';
+import { Column, Entity, ManyToOne } from 'typeorm';
 import { Board } from './board.entity';
 
 @Entity()
-export class BoardRating {
-  @PrimaryGeneratedColumn()
-  @IsNumber()
-  id: number;
-
+export class BoardRating extends CoreEntity {
   @Column()
   @IsNumber()
   board_id: number;

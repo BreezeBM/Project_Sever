@@ -1,12 +1,10 @@
-import { IsNumber, IsString } from 'class-validator';
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { IsString } from 'class-validator';
+import { CoreEntity } from 'src/common/entites/core.entity';
+import { Column, Entity, ManyToOne } from 'typeorm';
+import { Board } from './board.entity';
 
 @Entity()
-export class BoardComment {
-  @PrimaryGeneratedColumn()
-  @IsNumber()
-  id: number;
-
+export class BoardComment extends CoreEntity {
   @Column()
   @IsString()
   writer: string;
@@ -14,4 +12,7 @@ export class BoardComment {
   @Column()
   @IsString()
   comment: string;
+
+  @ManyToOne(() => Board, (board) => board.boardComments)
+  board: Board;
 }

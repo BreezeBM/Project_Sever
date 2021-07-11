@@ -4,15 +4,15 @@ import { Column, Entity, ManyToOne } from 'typeorm';
 import { RecipeBoard } from './recipeBoard.entity';
 
 @Entity()
-export class RecipeComment extends CoreEntity {
+export class RecipeIngredient extends CoreEntity {
   @Column()
   @IsString()
-  writer: string;
+  ingredient: string;
 
   @Column()
   @IsString()
-  comment: string;
+  volume: string;
 
-  @ManyToOne(() => RecipeBoard, (recipeBoard) => recipeBoard.recipeComments)
+  @ManyToOne(() => RecipeBoard, (recipeBoard) => recipeBoard.recipeIngredients)
   recipeBoard: RecipeBoard;
 }

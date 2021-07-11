@@ -6,8 +6,19 @@ import { ConfigModule } from '@nestjs/config';
 import { UserModule } from './user/user.module';
 import { BoardModule } from './board/board.module';
 import { RecipeBoardModule } from './recipe-board/recipeBoard.module';
-import { IngredientModule } from './ingredient/ingredient.module';
-import Joi from 'joi';
+import { GroceryModule } from './grocery/grocery.module';
+import * as Joi from 'joi';
+import { Board } from './board/entities/board.entity';
+import { BoardComment } from './board/entities/boardComment.entity';
+import { BoardLike } from './board/entities/boardLike.entity';
+import { Grocery } from './grocery/entities/grocery.entity';
+import { RecipeBoard } from './recipe-board/entities/recipeBoard.entity';
+import { RecipeComment } from './recipe-board/entities/recipeComment.entity';
+import { RecipeIngredient } from './recipe-board/entities/recipeIngredient.entity';
+import { User } from './user/entities/user.entity';
+import { LikeFood } from './user/entities/likeFood.entity';
+import { DislikeFood } from './user/entities/dislikeFood.entity';
+import { BoardRating } from './board/entities/boardRating.entity';
 
 @Module({
   imports: [
@@ -31,14 +42,26 @@ import Joi from 'joi';
       username: process.env.DB_USERNAME,
       password: process.env.DB_PASSWORD,
       database: process.env.DB_NAME,
-      synchronize: false,
+      synchronize: true,
       logging: true,
-      entities: [],
+      entities: [
+        Board,
+        BoardComment,
+        BoardLike,
+        BoardRating,
+        Grocery,
+        RecipeBoard,
+        RecipeComment,
+        RecipeIngredient,
+        User,
+        LikeFood,
+        DislikeFood,
+      ],
     }),
     UserModule,
     BoardModule,
     RecipeBoardModule,
-    IngredientModule,
+    GroceryModule,
   ],
   controllers: [AppController],
   providers: [AppService],
