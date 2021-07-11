@@ -24,7 +24,7 @@ export class RecipeBoard extends CoreEntity {
 
   @Column()
   @IsString()
-  photo: string;
+  recipeImg: string;
 
   @Column()
   @IsString()
